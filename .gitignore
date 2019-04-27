@@ -11,8 +11,9 @@
 *.tlog
 *.obj
 *.obj
-.vs/ClipFactory_G/v15/.suo
 *.db
 *.ipch
 *.lastbuildstate
 *.opendb
+*.db
+*.ipch
