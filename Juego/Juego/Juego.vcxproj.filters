@@ -15,28 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\board.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\boardgl.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\gltools.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\piece.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
+    <ClCompile Include="game.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="gltools.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="boardgl.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\boardgl.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\game.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\gltools.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
+    <ClInclude Include="board.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="gltools.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="piece.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="boardgl.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

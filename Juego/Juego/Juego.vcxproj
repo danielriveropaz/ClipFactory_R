@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="boardgl.cpp" />
+    <ClCompile Include="game.cpp" />
+    <ClCompile Include="gltools.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="board.h" />
+    <ClInclude Include="boardgl.h" />
+    <ClInclude Include="gltools.h" />
+    <ClInclude Include="piece.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{7AF7208F-4F97-4061-A83B-946A6BFCB5C3}</ProjectGuid>
@@ -114,17 +125,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\board.h" />
-    <ClInclude Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\boardgl.h" />
-    <ClInclude Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\gltools.h" />
-    <ClInclude Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\piece.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\boardgl.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\game.cpp" />
-    <ClCompile Include="..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\gltools.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
