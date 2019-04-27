@@ -1,0 +1,17 @@
+
+*.idb
+*.obj
+*.idb
+*.tlog
+*.pdb
+*.tlog
+*.lastbuildstate
+*.tlog
+*.tlog
+*.tlog
+*.obj
+*.obj
+.vs/ClipFactory_G/v15/.suo
+*.db
+*.ipch
+*.lastbuildstate
