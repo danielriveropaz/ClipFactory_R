@@ -2,4 +2,5 @@
   boardgl.cpp
   gltools.cpp
   Generando código...
-  ClipFactory_G.vcxproj -> C:\Users\Dani\Documents\GitHub\ClipFactory_R\bin\ClipFactory_G.exe
+  LINK : no se encontró C:\Users\beta3\Documents\GitHub\ClipFactory_R\bin\ClipFactory_G.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  ClipFactory_G.vcxproj -> C:\Users\beta3\Documents\GitHub\ClipFactory_R\bin\ClipFactory_G.exe
