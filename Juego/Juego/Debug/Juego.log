@@ -1,7 +1,0 @@
-﻿  boardgl.cpp
-c1xx : fatal error C1083: No se puede abrir el archivo origen: '..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\boardgl.cpp': No such file or directory
-  game.cpp
-c1xx : fatal error C1083: No se puede abrir el archivo origen: '..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\game.cpp': No such file or directory
-  gltools.cpp
-c1xx : fatal error C1083: No se puede abrir el archivo origen: '..\..\..\..\Downloads\glut_boardgame-master\glut_boardgame-master\src\gltools.cpp': No such file or directory
-  Generando código...
