@@ -1,13 +1,5 @@
-﻿  Bonus.cpp
-  Caja.cpp
-  ColorRGB.cpp
-  Disparo.cpp
-  Esfera.cpp
-  Hombre.cpp
-  Interaccion.cpp
-  Mundo.cpp
-  Pang.cpp
-  Pared.cpp
-  Vector2D.cpp
+﻿  Game.cpp
+  boardgl.cpp
+  gltools.cpp
   Generando código...
   ClipFactory_G.vcxproj -> C:\Users\Dani\Documents\GitHub\ClipFactory_R\bin\ClipFactory_G.exe

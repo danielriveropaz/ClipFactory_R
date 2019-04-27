@@ -17,10 +17,9 @@
     <ClInclude Include="src\piece.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\board.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="src\boardgl.cpp" />
     <ClCompile Include="src\gltools.cpp" />
-    <ClCompile Include="src\piece.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{e8cf6101-1127-4eb4-8463-5612f2df845d}</ProjectGuid>
@@ -34,6 +33,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
