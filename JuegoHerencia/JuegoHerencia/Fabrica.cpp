@@ -1,4 +1,5 @@
 #include "Fabrica.h"
+#include "Pieza.h"
 
 Fabrica::Fabrica()
 {
@@ -85,6 +86,26 @@ bool Fabrica::UpdateFabric()
 
 }
 
+
+int ** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base para guardar cada objeto de la fabrica
+	int **puntero_matriz;
+	puntero_matriz = new int*[nFilas]; //reserva de memoria para las filas
+	for (int i = 0; i < nFilas; i++) {
+		puntero_matriz[i] = new *Pieza[nColumnas]; //reserva de memoria para columnas por cada fila
+	}
+
+	/*cout << "\nDigitando elementos de la matriz:\n";
+	for (int i = 0; i < nFilas; i++) {
+		for (int j = 0; j < nColumnas; j++) {
+			cout << "Introduzca un numero [" << i + 1 << "][" << j + 1 << "]: ";
+			cin >> *(*(puntero_matriz + i) + j);
+		}
+
+	}*/
+
+	return puntero_matriz;
+
+}
 
 
 
