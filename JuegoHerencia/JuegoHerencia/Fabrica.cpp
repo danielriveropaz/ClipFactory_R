@@ -87,11 +87,11 @@ bool Fabrica::UpdateFabric()
 }
 
 
-int ** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base para guardar cada objeto de la fabrica
-	int **puntero_matriz;
-	puntero_matriz = new int*[nFilas]; //reserva de memoria para las filas
+Pieza ** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base para guardar cada objeto de la fabrica
+	Pieza **puntero_matriz;
+	puntero_matriz = new Pieza*[nFilas]; //reserva de memoria para las filas
 	for (int i = 0; i < nFilas; i++) {
-		puntero_matriz[i] = new *Pieza[nColumnas]; //reserva de memoria para columnas por cada fila
+		puntero_matriz[i] = new Pieza[nColumnas]; //reserva de memoria para columnas por cada fila
 	}
 
 	/*cout << "\nDigitando elementos de la matriz:\n";

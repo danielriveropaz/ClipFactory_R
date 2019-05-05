@@ -31,7 +31,7 @@ public:
 
 //metodos
 	bool UpdateFabric(); //actualiza los fondos, el precio y la produccion en funcion de las piezas y su nivel. Devuelve 1 si todo va bien o un 0 si estamos en numeros rojos.
-	int **lightsOn(int nFilas, int nColumnas);
+	Pieza **lightsOn(int nFilas, int nColumnas);
 
 	
 };
