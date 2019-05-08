@@ -19,8 +19,8 @@ class Fabrica
 
 	//matriz de piezas. Esta matriz es el estado de nuestra partida, que maquinas tenemos donde y en que nivel.
 
-	Pieza M[5][5]; //Estaria bien cambiarlo a memoria dinamica sobretodo si luego queremos ampliar la fabrica
-
+	Pieza ** M; //Estaria bien cambiarlo a memoria dinamica sobretodo si luego queremos ampliar la fabrica
+	
 	//Tipos de datos
 	enum Maquinas {Autoclipper_M =1, Marketing_M, Trefiladora_M};
 

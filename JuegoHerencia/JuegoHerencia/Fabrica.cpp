@@ -19,7 +19,7 @@ Fabrica::Fabrica()
 	{
 		for (int j = 0; j < 5; j++)
 		{
-			M[i][j] = Pieza(0);
+			M[i][j] = nullptr; 
 		}
 
 	}
@@ -88,6 +88,7 @@ bool Fabrica::UpdateFabric()
 
 
 Pieza ** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base para guardar cada objeto de la fabrica
+
 	Pieza **puntero_matriz;
 	puntero_matriz = new Pieza*[nFilas]; //reserva de memoria para las filas
 	for (int i = 0; i < nFilas; i++) {
