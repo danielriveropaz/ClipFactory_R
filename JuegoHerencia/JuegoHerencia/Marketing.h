@@ -9,5 +9,8 @@ class Marketing: public Pieza
 public:
 	Marketing();
 	~Marketing();
+
+	std::ostream& print(std::ostream& o = std::cout);
+
 };
 

@@ -1,5 +1,9 @@
 #include "Marketing.h"
+#include <fstream>
+#include <sstream>
+#include <iostream>
 
+using namespace std;
 
 
 Marketing::Marketing() :Pieza()
@@ -21,4 +25,10 @@ Marketing::Marketing() :Pieza()
 
 Marketing::~Marketing()
 {
+}
+
+ostream & Marketing::print(ostream & o)
+{
+	o << "M";
+	return o;// TODO: insertar una instrucción return aquí
 }

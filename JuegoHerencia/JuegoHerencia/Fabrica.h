@@ -16,10 +16,11 @@ class Fabrica
 	float gasto; //gasto por segundo total de la fabrica.
 	float beneficios; //beneficio por segundo que produce la fabrica. //Como lo voy añadiendo todo a los fondos pues no lo calculo, habria que añadir una auxiliar que sea fondos/ciclo para poder calcularla, o sino borrarla jajaja
 
+	int nFilas, nColumnas;
 
 	//matriz de piezas. Esta matriz es el estado de nuestra partida, que maquinas tenemos donde y en que nivel.
 
-	Pieza ** M; //Estaria bien cambiarlo a memoria dinamica sobretodo si luego queremos ampliar la fabrica
+	Pieza *** M; //Estaria bien cambiarlo a memoria dinamica sobretodo si luego queremos ampliar la fabrica
 	
 	//Tipos de datos
 	enum Maquinas {Autoclipper_M =1, Marketing_M, Trefiladora_M};
@@ -31,8 +32,9 @@ public:
 
 //metodos
 	bool UpdateFabric(); //actualiza los fondos, el precio y la produccion en funcion de las piezas y su nivel. Devuelve 1 si todo va bien o un 0 si estamos en numeros rojos.
-	Pieza **lightsOn(int nFilas, int nColumnas);
+	Pieza ***lightsOn(int nFilas, int nColumnas);
 
-	
+	Pieza getValue(int pRow, int pColumn);
+	std::ostream& print(std::ostream& o = std::cout);
 };
 

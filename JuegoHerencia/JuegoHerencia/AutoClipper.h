@@ -1,4 +1,6 @@
 #include "Pieza.h"
+#include <iostream>
+
 
 
 class AutoClipper : public Pieza  {
@@ -9,5 +11,8 @@ class AutoClipper : public Pieza  {
 public:
 	AutoClipper();
 
+
+	std::ostream& print(std::ostream& o = std::cout);
+	
 };
 

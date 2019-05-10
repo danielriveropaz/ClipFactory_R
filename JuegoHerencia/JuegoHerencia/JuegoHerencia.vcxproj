@@ -125,6 +125,7 @@
     <ClCompile Include="AutoClipper.cpp" />
     <ClCompile Include="Fabrica.cpp" />
     <ClCompile Include="Marketing.cpp" />
+    <ClCompile Include="Maurisio.cpp" />
     <ClCompile Include="Pieza.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Trefiladora.cpp" />

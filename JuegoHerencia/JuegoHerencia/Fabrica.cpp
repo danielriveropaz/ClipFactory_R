@@ -1,5 +1,10 @@
 #include "Fabrica.h"
 #include "Pieza.h"
+#include <fstream>
+#include <sstream>
+#include <iostream>
+
+using namespace std;
 
 Fabrica::Fabrica()
 {
@@ -13,13 +18,18 @@ Fabrica::Fabrica()
 	ConsumoDinero = 0;
 	ProdAlambre = 0;
 
+	nFilas = 5;
+	nColumnas = 5;
 
+	//Pieza **M;
+
+	M = lightsOn(nFilas, nColumnas);
 
 	for (int i = 0; i < 5; i++)
 	{
-		for (int j = 0; j < 5; j++)
+		for (int j = 0; j < -5; j++)
 		{
-			M[i][j] = nullptr; 
+			M[i][j] = 0; 
 		}
 
 	}
@@ -87,12 +97,13 @@ bool Fabrica::UpdateFabric()
 }
 
 
-Pieza ** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base para guardar cada objeto de la fabrica
+Pieza *** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base para guardar cada objeto de la fabrica
 
-	Pieza **puntero_matriz;
-	puntero_matriz = new Pieza*[nFilas]; //reserva de memoria para las filas
+	Pieza ***puntero_matriz;
+	puntero_matriz = new Pieza**[nFilas]; //reserva de memoria para las filas
 	for (int i = 0; i < nFilas; i++) {
-		puntero_matriz[i] = new Pieza[nColumnas]; //reserva de memoria para columnas por cada fila
+		puntero_matriz[i] = new Pieza*[nColumnas]; //reserva de memoria para columnas por cada fila
+
 	}
 
 	/*cout << "\nDigitando elementos de la matriz:\n";
@@ -108,8 +119,44 @@ Pieza ** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base pa
 
 }
 
+Pieza Fabrica::getValue(int pRow, int pColumn) {
+	if (pRow < 0 || pRow >= nFilas) {
+		//throw runtime_error("Invalid row.");
+	}
+	if (pColumn < 0 || pColumn >= nColumnas) {
+		//throw runtime_error("Invalid column.");
+	}
+	return M[pRow][pColumn];
+}
+
+ostream& Fabrica::print(ostream& o) {
+	for (int i = 0; i < nFilas; i++) {
+		for (int j = 0; j < nColumnas; j++) {
+			//o << static_cast<int>(M[i][j]) << " ";
+			//cout << ".";
+
+			//if (M[i][j] == NULL) {
+
+				M[i][j].print();
+			
+
+			cout << "\t";
+			
+		}
+		o << endl;
+		o << endl;
+	}
+
+	return o;
+}
+
+
+
+
 
 
 Fabrica::~Fabrica()
 {
 }
+
+

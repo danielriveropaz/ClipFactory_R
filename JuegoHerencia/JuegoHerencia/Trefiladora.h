@@ -9,5 +9,8 @@ class Trefiladora :public Pieza
 public:
 	Trefiladora();
 	~Trefiladora();
+
+	std::ostream& print(std::ostream& o = std::cout);
+
 };
 

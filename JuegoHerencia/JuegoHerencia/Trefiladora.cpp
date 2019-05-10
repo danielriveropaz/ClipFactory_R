@@ -1,10 +1,16 @@
 #include "Trefiladora.h"
+#include <fstream>
+#include <sstream>
+#include <iostream>
 
+using namespace std;
 
 
 Trefiladora::~Trefiladora()
 {
 }
+
+
 
 Trefiladora::Trefiladora() :Pieza()
 {
@@ -21,3 +27,10 @@ Trefiladora::Trefiladora() :Pieza()
 	tipo = 3;
 
 }
+
+ostream & Trefiladora::print(ostream & o)
+{
+	o << "T";
+	return o;// TODO: insertar una instrucción return aquí
+}
+

@@ -1,5 +1,8 @@
 #include "Pieza.h"
+#include <fstream>
+#include <sstream>
 
+using namespace std;
 
 /*
 Pieza::Pieza(float V_aporte[TOP_LEVEL], float V_consumo[TOP_LEVEL]) {
@@ -37,6 +40,12 @@ Pieza::Pieza(int a) //Esto crea una pieza que ni aporta ni consume.
 int Pieza::get_type()
 {
 	return tipo;
+}
+
+ostream& Pieza::print(ostream& o)
+{
+	cout << "pito";
+	return o;// TODO: insertar una instrucción return aquí
 }
 
 float Pieza::get_consumo()

@@ -1,4 +1,10 @@
 #include "AutoClipper.h"
+#include <fstream>
+#include <sstream>
+//#include <iostream>
+
+using namespace std;
+
 
 AutoClipper::AutoClipper() :Pieza()
 {
@@ -10,7 +16,13 @@ AutoClipper::AutoClipper() :Pieza()
 		aporte[i] = SetUPaporte[i];
 		consumo[i] = SetUpconsumo[i];
 	}
-
+	
 	coste = 10;
 	tipo = 1;
+}
+
+ostream & AutoClipper::print(ostream & o)
+{
+	o << "A"<<ends;
+	return o;// TODO: insertar una instrucción return aquí
 }

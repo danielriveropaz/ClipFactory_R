@@ -1,5 +1,7 @@
 #pragma once
 #define TOP_LEVEL 10 //VER POSIBILIDAD DE CONST....
+#include <iostream>
+
 
 class Pieza
 {
@@ -21,6 +23,7 @@ public:
 	float get_aporte(); //devuelve cuanto aporta la maquina durante su funcionamiento. 
 	float get_consumo(); //devuelve lo que necesita para funcionar.
 	int get_type(); //devuelve el tipo de maquina, lo rellena el constructor de los hijos
+	std::ostream& print(std::ostream& o = std::cout);
 };
 
 
