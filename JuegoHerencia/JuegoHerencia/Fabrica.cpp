@@ -1,8 +1,13 @@
 #include "Fabrica.h"
 #include "Pieza.h"
+#include "AutoClipper.h"
+#include "Marketing.h"
+#include "Trefiladora.h"
 #include <fstream>
 #include <sstream>
 #include <iostream>
+
+
 
 using namespace std;
 
@@ -21,15 +26,13 @@ Fabrica::Fabrica()
 	nFilas = 5;
 	nColumnas = 5;
 
-	//Pieza **M;
-
 	M = lightsOn(nFilas, nColumnas);
 
 	for (int i = 0; i < 5; i++)
 	{
 		for (int j = 0; j < -5; j++)
 		{
-			M[i][j] = 0; 
+			M[i][j] = NULL; 
 		}
 
 	}
@@ -50,21 +53,21 @@ bool Fabrica::UpdateFabric()
 	{
 		for (int j = 0; j < 5; j++)
 		{
-			switch (M[i][j].get_type()) {
+			switch (M[i][j]->get_type()) {
 
 			case Autoclipper_M: //Aporta dinero, consume alambre
-				ConsumoAlambre += M[i][j].get_consumo(); //Esto nos da cuanto alambre/segundo necesitamos, si lo tenemos produciremos, sino iremos perdiendo capacidad de produccion
+				ConsumoAlambre += M[i][j]->get_consumo(); //Esto nos da cuanto alambre/segundo necesitamos, si lo tenemos produciremos, sino iremos perdiendo capacidad de produccion
 				//tambien podriamos ir apagando las maquinas de menor nivel y marcarlas en rojo o algo, se puede cambiar la funcion si lo vemos guay
-				produccion += int(M[i][j].get_aporte());
+				produccion += int(M[i][j]->get_aporte());
 				break;
 			case Marketing_M:
-				ConsumoDinero += M[i][j].get_consumo();
-				precio += M[i][j].get_aporte();
+				ConsumoDinero += M[i][j]->get_consumo();
+				precio += M[i][j]->get_aporte();
 
 				break;
 			case Trefiladora_M:
-				ConsumoDinero += M[i][j].get_consumo();
-				ProdAlambre += M[i][j].get_aporte();
+				ConsumoDinero += M[i][j]->get_consumo();
+				ProdAlambre += M[i][j]->get_aporte();
 				break;
 
 			}
@@ -119,7 +122,7 @@ Pieza *** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base p
 
 }
 
-Pieza Fabrica::getValue(int pRow, int pColumn) {
+Pieza* Fabrica::getValue(int pRow, int pColumn) {
 	if (pRow < 0 || pRow >= nFilas) {
 		//throw runtime_error("Invalid row.");
 	}
@@ -135,10 +138,10 @@ ostream& Fabrica::print(ostream& o) {
 			//o << static_cast<int>(M[i][j]) << " ";
 			//cout << ".";
 
-			//if (M[i][j] == NULL) {
+			if (M[i][j] != NULL) {
 
-				M[i][j].print();
-			
+				M[i][j]->print();
+			}
 
 			cout << "\t";
 			
@@ -149,6 +152,31 @@ ostream& Fabrica::print(ostream& o) {
 
 	return o;
 }
+
+int Fabrica::new_maquina(int tipo, Pieza *J, int F, int C)
+{
+	
+	//AutoClipper J;
+
+	switch (tipo) {
+
+	case Autoclipper_M:
+		M[F][C] = new AutoClipper;
+		M[F][C] = J;
+		break;
+
+	case Marketing_M:
+		//*M[F][C] = H;
+		break;
+	case Trefiladora_M:
+		//*M[F][C] = T;
+		break;
+		return 0;//Si devuelve 0 todo ha ido mal, a los McCoy le pasan estas cosas de cuando en cuando.
+	}
+	//M[F][C] = pp;
+	//return 0;
+}
+
 
 
 

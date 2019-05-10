@@ -16,10 +16,10 @@ int main()
 	Fabrica F;
 	//F.UpdateFabric();+
 	AutoClipper A;
-	Marketing M;
-	Trefiladora T;
+	//Marketing M;
+	//Trefiladora T;
 	//T.print();
-
+	F.new_maquina(1, &A, 2, 3);
 	F.print();
 
 
