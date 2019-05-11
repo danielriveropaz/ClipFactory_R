@@ -30,7 +30,7 @@ Fabrica::Fabrica()
 
 	for (int i = 0; i < 5; i++)
 	{
-		for (int j = 0; j < -5; j++)
+		for (int j = 0; j < 5; j++)
 		{
 			M[i][j] = NULL; 
 		}
@@ -166,9 +166,13 @@ int Fabrica::new_maquina(int tipo, Pieza *J, int F, int C)
 		break;
 
 	case Marketing_M:
+		M[F][C] = new Marketing;
+		M[F][C] = J;
 		//*M[F][C] = H;
 		break;
 	case Trefiladora_M:
+		M[F][C] = new Trefiladora;
+		M[F][C] = J;
 		//*M[F][C] = T;
 		break;
 		return 0;//Si devuelve 0 todo ha ido mal, a los McCoy le pasan estas cosas de cuando en cuando.

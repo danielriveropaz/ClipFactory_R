@@ -15,11 +15,15 @@ int main()
 {
 	Fabrica F;
 	//F.UpdateFabric();+
-	AutoClipper A;
+	AutoClipper A, B, C, D;
+	Marketing E, M, G, H;
+	Trefiladora I, J, K, L;
 	//Marketing M;
 	//Trefiladora T;
 	//T.print();
-	F.new_maquina(1, &A, 2, 3);
+	F.new_maquina(1, &A, 2, 3); F.new_maquina(1, &B, 0, 0); F.new_maquina(1, &C, 4, 3); F.new_maquina(1, &D, 1, 1);
+	F.new_maquina(2, &E, 2, 2); F.new_maquina(2, &M, 2, 0); F.new_maquina(2, &G, 1, 3); F.new_maquina(2, &H, 2, 4);
+	F.new_maquina(3, &I, 3, 3); F.new_maquina(3, &J, 4, 4); F.new_maquina(3, &K, 1, 2); F.new_maquina(3, &L, 0, 1);
 	F.print();
 
 
