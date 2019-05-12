@@ -152,6 +152,7 @@ ostream& Fabrica::print(ostream& o, bool fichero) {
 			if (!fichero);
 				cout << "| ";
 
+
 			if (M[i][j] != NULL) {
 				
 				M[i][j]->print(o);
