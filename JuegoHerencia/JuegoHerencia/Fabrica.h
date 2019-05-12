@@ -48,7 +48,10 @@ public:
 	void control();
 	int update_dias();
 
+	//guardar y cargar juego
 	int SaveGame();
+	int LoadGame(string name, Fabrica FA);
+
 	
 
 };

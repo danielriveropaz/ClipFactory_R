@@ -161,14 +161,16 @@ ostream& Fabrica::print(ostream& o, bool fichero) {
 
 			}
 			else {
-				o << " - ";
+				o << "-";
 			}
 			if (!fichero)
 				cout << " |\t";
-			
+			else
+				o << ';';
 		}
 		o << endl;
-		if (!fichero)
+
+		if (!fichero)			
 			cout << endl;
 	}
 
@@ -317,9 +319,9 @@ int Fabrica::update_dias()
 
 int Fabrica::SaveGame() {
 
-	ofstream fs("SavedGame.txt");
+	ofstream fs("SavedGame.csv");
 	print(fs, true);
-	cout << "JuegoGuardado";
+	cout << "JuegoGuardado"<<endl;
 	fs.close();
 	return 1;
 }
@@ -334,3 +336,33 @@ Fabrica::~Fabrica()
 }
 
 
+/*
+
+int Fabrica::LoadGame(string name, Fabrica FA)
+{
+	ifstream myFile;
+	myFile.open(name);
+
+	int i = 0;
+	int j = 0;
+
+	while (myFile.good())
+	{
+		char tipo;
+		int level;
+		string line;
+
+		getline(myFile, line, ';');
+		const char* contenido = line.c_str();
+		sprintf((char*)contenido, "%c%d ", tipo, level);
+
+		j++;
+		if (j > 3) {
+			i++;
+			j = 0;
+		}
+	}
+
+}
+
+*/
