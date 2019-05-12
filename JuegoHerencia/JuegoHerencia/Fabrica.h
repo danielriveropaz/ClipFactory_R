@@ -6,6 +6,7 @@ class Fabrica
 	float fondos; //fondos totales.
 	int produccion; //produccion de clip por segundo.
 	float precio; //precio de venta de los clips
+	int dias;
 
 	//datos para nuestros calculos internos
 	float ProdAlambre; //Alambre producido por segundo
@@ -45,6 +46,8 @@ public:
 	int UpdateMachine(int F, int C); //aumenta el nivel y cobra el precio 
 	void imprimirEstado();
 	void control();
+	int update_dias();
+	
 
 };
 

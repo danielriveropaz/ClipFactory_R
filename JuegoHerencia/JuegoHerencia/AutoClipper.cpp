@@ -18,6 +18,7 @@ AutoClipper::AutoClipper() :Pieza()
 		aporte[i] = SetUPaporte[i];
 		consumo[i] = SetUpconsumo[i];
 		coste[i] = SetUpcoste[i];
+		ConsumoAlambre[i] = SetUpConsumoAlambre[i];
 	}
 
 	level = 0;

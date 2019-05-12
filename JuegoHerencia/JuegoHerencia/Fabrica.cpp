@@ -19,12 +19,15 @@ Fabrica::Fabrica()
 	gasto = 0;
 	beneficios = 0;
 
+	dias = 0;
+
 	ConsumoAlambre = 0;
 	ConsumoDinero = 0;
 	ProdAlambre = 0;
 
 	nFilas = 5;
 	nColumnas = 5;
+
 
 	M = lightsOn(nFilas, nColumnas);
 
@@ -97,7 +100,6 @@ bool Fabrica::UpdateFabric()
 	if (ocupacion >= 1) //las maquinas no pueden trabajar a mas del 100%
 		ocupacion = 1;
 
-	cout << "ocupacion:" << ocupacion;
 
 	produccion = int(produccion * ocupacion); //actualizamos la produccion de las maquinas en funcion de si pueden trabajar al 100 o no.
 
@@ -229,6 +231,7 @@ void Fabrica::imprimirEstado()
 	cout << "Consumo dinero: " << ConsumoDinero << endl;
 	cout << "Gastos: " << gasto << endl;
 	cout << "Beneficios: " << beneficios << endl;
+	cout << "Dias transcurridos: " << dias << endl;
 
 
 }
@@ -301,6 +304,11 @@ void Fabrica::control()
 
 
 
+int Fabrica::update_dias()
+{
+	dias++;
+	return 1; //todo ha ido bien. 
+}
 
 
 

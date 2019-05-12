@@ -35,14 +35,15 @@ int main()
 	F.new_maquina(Fabrica::Trefiladora_M, 2, 0);
 
 	for (int i = 1; i > 0; i++) {
+		F.update_dias();
 		system("cls");
 		F.UpdateFabric();
 		F.print();
 		F.imprimirEstado();
-		cout << i<<endl;
 		F.control();
 		//F.new_maquina(Fabrica::Autoclipper_M, 0, i);
 	}
+
 	system ("pause");
 	return 0;
 
