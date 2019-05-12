@@ -149,7 +149,7 @@ Pieza* Fabrica::getValue(int pRow, int pColumn) {
 ostream& Fabrica::print(ostream& o, bool fichero) {
 	for (int i = 0; i < nFilas; i++) {
 		for (int j = 0; j < nColumnas; j++) {
-			if (!fichero);
+			if (!fichero)
 				cout << "| ";
 
 
@@ -163,7 +163,7 @@ ostream& Fabrica::print(ostream& o, bool fichero) {
 			else {
 				o << " - ";
 			}
-			if (!fichero);
+			if (!fichero)
 				cout << " |\t";
 			
 		}
