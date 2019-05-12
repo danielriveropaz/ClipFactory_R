@@ -40,6 +40,7 @@ int main()
 		F.UpdateFabric();
 		F.print();
 		F.imprimirEstado();
+		F.SaveGame();
 		F.control();
 		//F.new_maquina(Fabrica::Autoclipper_M, 0, i);
 	}

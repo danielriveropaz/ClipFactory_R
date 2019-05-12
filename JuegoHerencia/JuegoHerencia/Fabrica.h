@@ -39,7 +39,7 @@ public:
 
 	//Pieza* getValue(int pRow, int pColumn);
 
-	std::ostream& print(std::ostream& o = std::cout);
+	std::ostream& print(std::ostream& o = std::cout, bool fichero = false);
 	int new_maquina(int tipo, int F, int C);
 	int getLevel(int F, int C); //devuelve el nivel de la maquina que esta en la casilla [F] [C]
 	float getCoste(int F, int C);//devuelve el coste de la maquina, ya sea precio inicial si esta el nivel a 0 o de actualizacion si es superior. 
@@ -47,6 +47,8 @@ public:
 	void imprimirEstado();
 	void control();
 	int update_dias();
+
+	int SaveGame();
 	
 
 };

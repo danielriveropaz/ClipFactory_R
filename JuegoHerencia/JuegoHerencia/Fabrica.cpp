@@ -146,25 +146,29 @@ Pieza* Fabrica::getValue(int pRow, int pColumn) {
 }
 */
 
-ostream& Fabrica::print(ostream& o) {
+ostream& Fabrica::print(ostream& o, bool fichero) {
 	for (int i = 0; i < nFilas; i++) {
 		for (int j = 0; j < nColumnas; j++) {
-			//o << static_cast<int>(M[i][j]) << " ";
-			//cout << ".";
-			cout << "| ";
+			if (!fichero);
+				cout << "| ";
+
 			if (M[i][j] != NULL) {
 				
-				M[i][j]->print();
+				M[i][j]->print(o);
+				o << M[i][j]->getLevel();
+
 
 			}
 			else {
-				cout << " ";
+				o << " - ";
 			}
-			cout << " |\t";
+			if (!fichero);
+				cout << " |\t";
 			
 		}
 		o << endl;
-		o << endl;
+		if (!fichero)
+			cout << endl;
 	}
 
 	return o;
@@ -309,6 +313,16 @@ int Fabrica::update_dias()
 	dias++;
 	return 1; //todo ha ido bien. 
 }
+
+int Fabrica::SaveGame() {
+
+	ofstream fs("SavedGame.txt");
+	print(fs, true);
+	cout << "JuegoGuardado";
+	fs.close();
+	return 1;
+}
+
 
 
 

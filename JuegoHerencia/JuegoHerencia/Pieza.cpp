@@ -46,7 +46,6 @@ int Pieza::get_type()
 
 ostream& Pieza::print(ostream& o)
 {
-	cout << "pito";
 	return o;// TODO: insertar una instrucción return aquí
 }
 
