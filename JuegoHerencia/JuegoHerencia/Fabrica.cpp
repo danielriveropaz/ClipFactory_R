@@ -61,7 +61,7 @@ bool Fabrica::UpdateFabric()
 					ConsumoAlambre += M[i][j]->get_consumo_alambre(); //Esto nos da cuanto alambre/segundo necesitamos, si lo tenemos produciremos, sino iremos perdiendo capacidad de produccion
 					//tambien podriamos ir apagando las maquinas de menor nivel y marcarlas en rojo o algo, se puede cambiar la funcion si lo vemos guay
 					produccion += M[i][j]->get_aporte();
-					ConsumoDinero= M[i][j]->get_consumo();
+					ConsumoDinero+= M[i][j]->get_consumo();
 					break;
 				case Marketing_M:
 					ConsumoDinero += M[i][j]->get_consumo();
