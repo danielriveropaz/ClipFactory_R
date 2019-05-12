@@ -62,3 +62,5 @@ ClipFactory_G/tmp/Debug/boardgl.obj
 bin/ClipFactory_G.ilk
 bin/ClipFactory_G.pdb
 *.log
+JuegoHerencia/.vs/JuegoHerencia/v15/.suo
+*.csv
