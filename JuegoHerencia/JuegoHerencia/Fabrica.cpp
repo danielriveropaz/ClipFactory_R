@@ -28,9 +28,9 @@ Fabrica::Fabrica()
 
 	M = lightsOn(nFilas, nColumnas);
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < nFilas; i++)
 	{
-		for (int j = 0; j < 5; j++)
+		for (int j = 0; j < nColumnas; j++)
 		{
 			M[i][j] = NULL; 
 		}
@@ -137,13 +137,16 @@ ostream& Fabrica::print(ostream& o) {
 		for (int j = 0; j < nColumnas; j++) {
 			//o << static_cast<int>(M[i][j]) << " ";
 			//cout << ".";
-
+			cout << "| ";
 			if (M[i][j] != NULL) {
-
+				
 				M[i][j]->print();
-			}
 
-			cout << "\t";
+			}
+			else {
+				cout << " ";
+			}
+			cout << " |\t";
 			
 		}
 		o << endl;
@@ -153,27 +156,28 @@ ostream& Fabrica::print(ostream& o) {
 	return o;
 }
 
-int Fabrica::new_maquina(int tipo, Pieza *J, int F, int C)
+int Fabrica::new_maquina(int tipo, int F, int C)
 {
 	
-	//AutoClipper J;
+	AutoClipper J_aux;
+	Marketing M_aux;
+	Trefiladora T_aux;
 
 	switch (tipo) {
 
 	case Autoclipper_M:
 		M[F][C] = new AutoClipper;
-		M[F][C] = J;
+		*M[F][C] = J_aux;
 		break;
 
 	case Marketing_M:
 		M[F][C] = new Marketing;
-		M[F][C] = J;
+		*M[F][C] = M_aux;
 		//*M[F][C] = H;
 		break;
 	case Trefiladora_M:
 		M[F][C] = new Trefiladora;
-		M[F][C] = J;
-		//*M[F][C] = T;
+		*M[F][C] = T_aux;
 		break;
 		return 0;//Si devuelve 0 todo ha ido mal, a los McCoy le pasan estas cosas de cuando en cuando.
 	}

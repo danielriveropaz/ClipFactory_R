@@ -23,6 +23,6 @@ AutoClipper::AutoClipper() :Pieza()
 
 ostream & AutoClipper::print(ostream & o)
 {
-	o << "A"<<ends;
+	o << "A";
 	return o;// TODO: insertar una instrucción return aquí
 }

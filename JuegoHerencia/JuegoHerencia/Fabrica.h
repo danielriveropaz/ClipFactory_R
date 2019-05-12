@@ -36,6 +36,6 @@ public:
 
 	Pieza* getValue(int pRow, int pColumn);
 	std::ostream& print(std::ostream& o = std::cout);
-	int new_maquina(int tipo, Pieza *J, int F, int C);
+	int new_maquina(int tipo, int F, int C);
 };
 
