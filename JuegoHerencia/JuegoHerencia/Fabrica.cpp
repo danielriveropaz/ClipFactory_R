@@ -14,7 +14,7 @@ using namespace std;
 Fabrica::Fabrica()
 {
 	fondos = 1000; //Se podria poner modos de juego, facil, dificil, etc etc donde cambiemos el capital inicial.
-	produccion = 0;
+	produccion = 0;//numero de clips por ciclo
 	precio = 0;
 	gasto = 0;
 	beneficios = 0;
@@ -49,27 +49,36 @@ bool Fabrica::UpdateFabric()
 	produccion = 0;
 
 	//Esto se podria meter en otro metodo para facilitar lectura.
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < nFilas; i++)
 	{
-		for (int j = 0; j < 5; j++)
+		for (int j = 0; j < nColumnas; j++)
 		{
-			switch (M[i][j]->get_type()) {
+			if (M[i][j] != NULL) {
 
-			case Autoclipper_M: //Aporta dinero, consume alambre
-				ConsumoAlambre += M[i][j]->get_consumo(); //Esto nos da cuanto alambre/segundo necesitamos, si lo tenemos produciremos, sino iremos perdiendo capacidad de produccion
-				//tambien podriamos ir apagando las maquinas de menor nivel y marcarlas en rojo o algo, se puede cambiar la funcion si lo vemos guay
-				produccion += int(M[i][j]->get_aporte());
-				break;
-			case Marketing_M:
-				ConsumoDinero += M[i][j]->get_consumo();
-				precio += M[i][j]->get_aporte();
+				switch (M[i][j]->get_type()) {
 
-				break;
-			case Trefiladora_M:
-				ConsumoDinero += M[i][j]->get_consumo();
-				ProdAlambre += M[i][j]->get_aporte();
-				break;
+				case Autoclipper_M: //Aporta dinero, consume alambre
+					ConsumoAlambre += M[i][j]->get_consumo(); //Esto nos da cuanto alambre/segundo necesitamos, si lo tenemos produciremos, sino iremos perdiendo capacidad de produccion
+					//tambien podriamos ir apagando las maquinas de menor nivel y marcarlas en rojo o algo, se puede cambiar la funcion si lo vemos guay
+					cout<< M[i][j]->get_aporte()<<endl;
+					cout << M[i][j]->getLevel()<<endl;
+					cout << M[i][j]->get_type()<<endl;
+					produccion += M[i][j]->get_aporte();
+					cout << "AutoClipper"<<endl;
+					cout << produccion << endl;
+					break;
+				case Marketing_M:
+					ConsumoDinero += M[i][j]->get_consumo();
+					precio += M[i][j]->get_aporte();
+					cout << "Marketing"<<endl;
+					break;
+				case Trefiladora_M:
+					ConsumoDinero += M[i][j]->get_consumo();
+					ProdAlambre += M[i][j]->get_aporte();
+					cout << "Trefiladora"<<endl;
+					break;
 
+				}
 			}
 
 		}
@@ -90,13 +99,19 @@ bool Fabrica::UpdateFabric()
 	//Si no estas en la bancarrota, actualizamos los autoclippers.
 
 	float ocupacion = ProdAlambre / ConsumoAlambre;
+
+	if (ocupacion >= 1) //las maquinas no pueden trabajar a mas del 100%
+		ocupacion = 1;
+
+	cout << "ocupacion:" << ocupacion;
+
 	produccion = int(produccion * ocupacion); //actualizamos la produccion de las maquinas en funcion de si pueden trabajar al 100 o no.
 
 	//Una vez tenemos la produccion de clips de este ciclo, los vendemos.
 	fondos += precio * produccion;
 
 
-
+	return 1;//todo correcto
 }
 
 
@@ -197,7 +212,7 @@ int Fabrica::getLevel(int F, int C) {
 	return M[F][C]->getLevel();
 }
 
-int Fabrica::getCoste(int F, int C) {
+float Fabrica::getCoste(int F, int C) {
 	return M[F][C]->getCoste();
 }
 
@@ -208,6 +223,74 @@ int Fabrica::UpdateMachine(int F, int C) {
 	fondos = fondos - M[F][C]->getCoste();
 	return 1; //todo ok
 	
+}
+
+void Fabrica::imprimirEstado()
+{
+	cout << "Fondos: " << fondos << endl;
+	cout << "Produccion: " << produccion << endl;
+	cout << "Precio: " << precio << endl;
+	cout << "Produccion alambre: " << ProdAlambre << endl;
+	cout << "Consumo alambre: " << ConsumoAlambre << endl;
+	cout << "Consumo dinero: " << ConsumoDinero << endl;
+	cout << "Gastos: " << gasto << endl;
+	cout << "Beneficios: " << beneficios << endl;
+
+
+}
+
+void Fabrica::control()
+{
+	char opcion;
+	int x, y;
+	//cin >> opcion;
+	opcion = std::cin.get();
+	if (opcion == 'n')
+	{
+		cin >> opcion;
+		switch (opcion) {
+		case 'a':
+			cout << "Escriba la coordenada x de la nueva maquina:";
+			cin >> x;
+			cout << "Escriba la coordenada y de la nueva maquina:";
+			cin >> y;
+
+			new_maquina(Autoclipper_M, x, y);
+			break;
+
+
+		case 'm':
+			cout << "Escriba la coordenada x de la nueva maquina:";
+			cin >> x;
+			cout << "Escriba la coordenada y de la nueva maquina:";
+			cin >> y;
+
+			new_maquina(Marketing_M, x, y);
+			break;
+
+
+		case 't':
+			cout << "Escriba la coordenada x de la nueva maquina:";
+			cin >> x;
+			cout << "Escriba la coordenada y de la nueva maquina:";
+			cin >> y;
+
+			new_maquina(Trefiladora_M, x, y);
+			break;
+
+
+		}
+
+
+	}
+	else if (opcion == '\n') {
+		system("pause");
+	}
+	
+	else{
+		system("pause");
+	}
+		 
 }
 
 

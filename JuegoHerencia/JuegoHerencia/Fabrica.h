@@ -22,13 +22,15 @@ class Fabrica
 
 	Pieza *** M; //Estaria bien cambiarlo a memoria dinamica sobretodo si luego queremos ampliar la fabrica
 	
-	//Tipos de datos
-	enum Maquinas {Autoclipper_M =1, Marketing_M, Trefiladora_M};
 
 
 public:
 	Fabrica(); //deberia reservar memoria para el vector e igualarlo a NULL
 	~Fabrica();
+
+	//Tipos de datos
+	enum Maquinas { Autoclipper_M = 1, Marketing_M, Trefiladora_M };
+
 
 //metodos
 	bool UpdateFabric(); //actualiza los fondos, el precio y la produccion en funcion de las piezas y su nivel. Devuelve 1 si todo va bien o un 0 si estamos en numeros rojos.
@@ -39,8 +41,10 @@ public:
 	std::ostream& print(std::ostream& o = std::cout);
 	int new_maquina(int tipo, int F, int C);
 	int getLevel(int F, int C); //devuelve el nivel de la maquina que esta en la casilla [F] [C]
-	int getCoste(int F, int C);//devuelve el coste de la maquina, ya sea precio inicial si esta el nivel a 0 o de actualizacion si es superior. 
+	float getCoste(int F, int C);//devuelve el coste de la maquina, ya sea precio inicial si esta el nivel a 0 o de actualizacion si es superior. 
 	int UpdateMachine(int F, int C); //aumenta el nivel y cobra el precio 
+	void imprimirEstado();
+	void control();
 
 };
 

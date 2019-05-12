@@ -30,6 +30,8 @@ Pieza::Pieza(int a) //Esto crea una pieza que ni aporta ni consume.
 		consumo[i] = 0;
 	}
 
+	level = 0;
+
 	coste[0] = 0;
 
 }
