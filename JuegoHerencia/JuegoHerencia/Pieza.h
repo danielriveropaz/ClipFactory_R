@@ -27,6 +27,9 @@ public:
 	int getLevel();
 	float getCoste();
 	int UpdateLevel();
+
+//metodoexclusivoAutoclipper
+	virtual float get_consumo_alambre() { return 0; } //esta vacio
 };
 
 

@@ -58,24 +58,18 @@ bool Fabrica::UpdateFabric()
 				switch (M[i][j]->get_type()) {
 
 				case Autoclipper_M: //Aporta dinero, consume alambre
-					ConsumoAlambre += M[i][j]->get_consumo(); //Esto nos da cuanto alambre/segundo necesitamos, si lo tenemos produciremos, sino iremos perdiendo capacidad de produccion
+					ConsumoAlambre += M[i][j]->get_consumo_alambre(); //Esto nos da cuanto alambre/segundo necesitamos, si lo tenemos produciremos, sino iremos perdiendo capacidad de produccion
 					//tambien podriamos ir apagando las maquinas de menor nivel y marcarlas en rojo o algo, se puede cambiar la funcion si lo vemos guay
-					cout<< M[i][j]->get_aporte()<<endl;
-					cout << M[i][j]->getLevel()<<endl;
-					cout << M[i][j]->get_type()<<endl;
 					produccion += M[i][j]->get_aporte();
-					cout << "AutoClipper"<<endl;
-					cout << produccion << endl;
+					ConsumoDinero= M[i][j]->get_consumo();
 					break;
 				case Marketing_M:
 					ConsumoDinero += M[i][j]->get_consumo();
 					precio += M[i][j]->get_aporte();
-					cout << "Marketing"<<endl;
 					break;
 				case Trefiladora_M:
 					ConsumoDinero += M[i][j]->get_consumo();
 					ProdAlambre += M[i][j]->get_aporte();
-					cout << "Trefiladora"<<endl;
 					break;
 
 				}
@@ -242,7 +236,7 @@ void Fabrica::imprimirEstado()
 void Fabrica::control()
 {
 	char opcion;
-	int x, y;
+	int fila, columna;
 	//cin >> opcion;
 	opcion = std::cin.get();
 	if (opcion == 'n')
@@ -250,32 +244,32 @@ void Fabrica::control()
 		cin >> opcion;
 		switch (opcion) {
 		case 'a':
-			cout << "Escriba la coordenada x de la nueva maquina:";
-			cin >> x;
-			cout << "Escriba la coordenada y de la nueva maquina:";
-			cin >> y;
+			cout << "Escriba la fila de la nueva maquina:";
+			cin >> fila;
+			cout << "Escriba la columna de la nueva maquina:";
+			cin >> columna;
 
-			new_maquina(Autoclipper_M, x, y);
+			new_maquina(Autoclipper_M, fila, columna);
 			break;
 
 
 		case 'm':
-			cout << "Escriba la coordenada x de la nueva maquina:";
-			cin >> x;
-			cout << "Escriba la coordenada y de la nueva maquina:";
-			cin >> y;
+			cout << "Escriba la fila de la nueva maquina:";
+			cin >> fila;
+			cout << "Escriba la columna de la nueva maquina:";
+			cin >> columna;
 
-			new_maquina(Marketing_M, x, y);
+			new_maquina(Marketing_M, fila, columna);
 			break;
 
 
 		case 't':
-			cout << "Escriba la coordenada x de la nueva maquina:";
-			cin >> x;
-			cout << "Escriba la coordenada y de la nueva maquina:";
-			cin >> y;
+			cout << "Escriba la fila de la nueva maquina:";
+			cin >> fila;
+			cout << "Escriba la columna de la nueva maquina:";
+			cin >> columna;
 
-			new_maquina(Trefiladora_M, x, y);
+			new_maquina(Trefiladora_M, fila, columna);
 			break;
 
 
@@ -286,11 +280,23 @@ void Fabrica::control()
 	else if (opcion == '\n') {
 		system("pause");
 	}
-	
-	else{
+	else if (opcion == 'l') {
+
+		cout << "Escriba la fila de la maquina a la que quiere subir el nivel: ";
+		cin >> fila;
+		cout << "Escriba la columnade la maquina a la que quiere subir el nivel: ";
+		cin >> columna;
+		if (UpdateMachine(fila, columna)) cout << "El nivel se ha subido correctamente";
+		else {
+			cout << "El nivel no se ha subido correctamente";
+		}
+
+	}
+
+	else {
 		system("pause");
 	}
-		 
+
 }
 
 
