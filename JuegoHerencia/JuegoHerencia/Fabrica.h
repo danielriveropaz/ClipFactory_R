@@ -34,8 +34,13 @@ public:
 	bool UpdateFabric(); //actualiza los fondos, el precio y la produccion en funcion de las piezas y su nivel. Devuelve 1 si todo va bien o un 0 si estamos en numeros rojos.
 	Pieza ***lightsOn(int nFilas, int nColumnas);
 
-	Pieza* getValue(int pRow, int pColumn);
+	//Pieza* getValue(int pRow, int pColumn);
+
 	std::ostream& print(std::ostream& o = std::cout);
 	int new_maquina(int tipo, int F, int C);
+	int getLevel(int F, int C); //devuelve el nivel de la maquina que esta en la casilla [F] [C]
+	int getCoste(int F, int C);//devuelve el coste de la maquina, ya sea precio inicial si esta el nivel a 0 o de actualizacion si es superior. 
+	int UpdateMachine(int F, int C); //aumenta el nivel y cobra el precio 
+
 };
 

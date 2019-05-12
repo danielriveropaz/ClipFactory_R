@@ -25,11 +25,17 @@ int main()
 	//F.new_maquina(2, &E, 2, 2); F.new_maquina(2, &M, 2, 0); F.new_maquina(2, &G, 1, 3); F.new_maquina(2, &H, 2, 4);
 	//F.new_maquina(3, &I, 3, 3); F.new_maquina(3, &J, 4, 4); F.new_maquina(3, &K, 1, 2); F.new_maquina(3, &L, 0, 1);
 	
-	F.new_maquina(2, 0, 0);
+	F.new_maquina(1, 0, 0);
 	F.new_maquina(1, 0, 1);
 	F.new_maquina(3, 0, 2);
 	F.new_maquina(1, 0, 3);
 	F.print();
+	
+	cout << endl;
+	cout << F.getLevel(0, 0);
+
+	cout << endl;
+	cout << F.getCoste(0, 0);
 
 
 	system ("pause");

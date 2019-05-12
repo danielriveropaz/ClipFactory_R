@@ -30,7 +30,7 @@ Pieza::Pieza(int a) //Esto crea una pieza que ni aporta ni consume.
 		consumo[i] = 0;
 	}
 
-	coste = 0;
+	coste[0] = 0;
 
 }
 
@@ -57,5 +57,22 @@ float Pieza::get_aporte() {
 
 	return aporte[level];
 }
+
+int Pieza::getLevel() {
+
+	return level;
+}
+
+float Pieza::getCoste() {
+
+	return coste[level];
+}
+
+int Pieza::UpdateLevel() {
+
+	level = level++;
+	return 1;
+}
+
 
 

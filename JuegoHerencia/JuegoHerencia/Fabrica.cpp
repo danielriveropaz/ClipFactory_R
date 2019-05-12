@@ -122,6 +122,8 @@ Pieza *** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base p
 
 }
 
+/*
+
 Pieza* Fabrica::getValue(int pRow, int pColumn) {
 	if (pRow < 0 || pRow >= nFilas) {
 		//throw runtime_error("Invalid row.");
@@ -131,6 +133,7 @@ Pieza* Fabrica::getValue(int pRow, int pColumn) {
 	}
 	return M[pRow][pColumn];
 }
+*/
 
 ostream& Fabrica::print(ostream& o) {
 	for (int i = 0; i < nFilas; i++) {
@@ -158,7 +161,10 @@ ostream& Fabrica::print(ostream& o) {
 
 int Fabrica::new_maquina(int tipo, int F, int C)
 {
-	
+
+	if (F > nFilas || C > nColumnas)
+		return 1;
+
 	AutoClipper J_aux;
 	Marketing M_aux;
 	Trefiladora T_aux;
@@ -179,11 +185,31 @@ int Fabrica::new_maquina(int tipo, int F, int C)
 		M[F][C] = new Trefiladora;
 		*M[F][C] = T_aux;
 		break;
-		return 0;//Si devuelve 0 todo ha ido mal, a los McCoy le pasan estas cosas de cuando en cuando.
 	}
-	//M[F][C] = pp;
-	//return 0;
+
+	fondos = fondos - M[F][C]->getCoste(); //gasto incial de la maquina
+	return 0;//Si devuelve 0 todo ha ido mal, a los McCoy le pasan estas cosas de cuando en cuando.
+
+
 }
+
+int Fabrica::getLevel(int F, int C) {
+	return M[F][C]->getLevel();
+}
+
+int Fabrica::getCoste(int F, int C) {
+	return M[F][C]->getCoste();
+}
+
+
+int Fabrica::UpdateMachine(int F, int C) {
+
+	M[F][C]->UpdateLevel();
+	fondos = fondos - M[F][C]->getCoste();
+	return 1; //todo ok
+	
+}
+
 
 
 

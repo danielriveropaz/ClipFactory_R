@@ -10,7 +10,7 @@ protected:
 	int level; //alamacena el nivel en el que se encuentra la maquina
 	float aporte[TOP_LEVEL]; //hay que cambiarlo para cada objeto, aqui se consulta por ejemplo cuanto dinero aporta en el nivel X
 	float consumo[TOP_LEVEL]; //hay que cambiarlo para cada objeto, aqui se consulta por ejemplo cuanto dinero consume en el nivel X
-	int coste;
+	float coste[TOP_LEVEL];
 	int tipo; //1-->AutoClipper, 2-->Marketing, 3-->trefiladora
 
 public:
@@ -24,6 +24,9 @@ public:
 	float get_consumo(); //devuelve lo que necesita para funcionar.
 	int get_type(); //devuelve el tipo de maquina, lo rellena el constructor de los hijos
 	virtual std::ostream& print(std::ostream& o = std::cout);
+	int getLevel();
+	float getCoste();
+	int UpdateLevel();
 };
 
 
