@@ -50,7 +50,7 @@ public:
 
 	//guardar y cargar juego
 	int SaveGame();
-	int LoadGame(string name, Fabrica FA);
+	//int LoadGame(string name, Fabrica FA);
 
 	
 

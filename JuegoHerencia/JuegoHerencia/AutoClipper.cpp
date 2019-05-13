@@ -8,7 +8,7 @@ using namespace std;
 
 AutoClipper::AutoClipper() :Pieza()
 {
-	float SetUPaporte[] = {10,20,30,40,50,60,70,80,90,100 };
+	float SetUPaporte[] = {500,1000,1500,2000,2500,3000,3700,4300,4900,5500 };
 	float SetUpconsumo[] = {10, 11, 13, 15, 20, 26, 30, 36, 41, 47};
 	float SetUpcoste[]= {10, 20, 40, 80, 90, 100, 110, 300, 100 };
 	float SetUpConsumoAlambre[] = {10, 11, 13, 15, 20, 26, 30, 36, 41, 47};
