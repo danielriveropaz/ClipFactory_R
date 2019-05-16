@@ -40,6 +40,9 @@ Fabrica::Fabrica()
 
 	}
 
+	//pruebas, para ver cómo se dibujan...
+	//new_maquina(1, 0, 1); new_maquina(2, 1, 1); new_maquina(3, 1, 0); new_maquina(1, 2, 2); 
+
 }
 
 bool Fabrica::UpdateFabric()
@@ -133,19 +136,6 @@ Pieza *** Fabrica::lightsOn(int nFilas, int nColumnas) { //Crea la matriz base p
 
 }
 
-/*
-
-Pieza* Fabrica::getValue(int pRow, int pColumn) {
-	if (pRow < 0 || pRow >= nFilas) {
-		//throw runtime_error("Invalid row.");
-	}
-	if (pColumn < 0 || pColumn >= nColumnas) {
-		//throw runtime_error("Invalid column.");
-	}
-	return M[pRow][pColumn];
-}
-*/
-
 ostream& Fabrica::print(ostream& o, bool fichero) {
 	for (int i = 0; i < nFilas; i++) {
 		for (int j = 0; j < nColumnas; j++) {
@@ -193,6 +183,48 @@ int Fabrica::getnFilas() {
 
 int Fabrica::getnColumnas() {
 	return nColumnas;
+}
+
+void Fabrica::CambiaTamaño(int F, int C) {  //NOTA, SOLO SE CONSIDERAN POSIBLES LAS AMPLIACIONES
+	//Maximo 20 filas y 20 columnas, de momento, si metemos más, hay que programar que se pueda mover la cámara, 
+	//y dejarla más cerca, si no no se ve nada...
+	if ((F < 0 || C < 0) || (nFilas >= 20 || nColumnas >= 20)) {   }
+	else
+	{
+		//nuevo puntero a una matriz N auxiliar, para guardar los datos mientras se crea una nueva matriz.
+		Pieza *** N = lightsOn(nFilas, nColumnas);
+		for (int i = 0; i < nFilas; i++)
+		{
+			for (int j = 0; j < nColumnas; j++)
+			{
+				N[i][j] = M[i][j];
+			}
+		}
+		//puntero a nueva matriz M, inicialmente, ponemos todo a NULL, y despues pasamos los datos de N a M.
+
+		M = lightsOn(nFilas + F, nColumnas + C);
+
+		for (int i = 0; i < nFilas + F; i++)
+		{
+			for (int j = 0; j < nColumnas + C; j++)
+			{
+				M[i][j] = NULL;
+			}
+		}
+
+		for (int i = 0; i < nFilas; i++)
+		{
+			for (int j = 0; j < nColumnas; j++)
+			{
+				M[i][j] = N[i][j];
+			}
+		}
+
+
+		//nuevas filas y columnas.
+		nFilas = nFilas + F;
+		nColumnas = nColumnas + C;
+	}
 }
 
 int Fabrica::new_maquina(int tipo, int F, int C)

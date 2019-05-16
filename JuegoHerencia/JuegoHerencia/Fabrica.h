@@ -6,6 +6,7 @@ enum Maquinas { Autoclipper_M = 1, Marketing_M, Trefiladora_M };
 
 class Fabrica
 {
+private:
 	//datos mostrados al usuario
 	float fondos; //fondos totales.
 	int produccion; //produccion de clip por segundo.
@@ -51,6 +52,7 @@ public:
 	void imprimirEstado();
 	void control();
 	int update_dias();
+	void CambiaTamaño(int F, int C);
 
 	//guardar y cargar juego
 	int SaveGame();

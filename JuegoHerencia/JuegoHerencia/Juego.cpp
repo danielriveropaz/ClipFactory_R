@@ -26,9 +26,7 @@ int main(int argc, char* argv[]) {
 	glutDisplayFunc(OnDraw);
 	glutKeyboardFunc(OnKeyboardDown);
 	glutMouseFunc(OnMouseClick);
-	glutTimerFunc(25, OnTimer, 0);			 //set timer if required, currently not used
-
-
+	glutTimerFunc(25, OnTimer, 0);
 
 	//sets light and perspective
 	glEnable(GL_LIGHT0);
@@ -51,7 +49,7 @@ void OnDraw(void) {
 }
 
 void OnKeyboardDown(unsigned char key, int x_t, int y_t) {
-	T.KeyDown(key);
+	T.KeyDown(key, *pF);
 	glutPostRedisplay();
 }
 
@@ -71,7 +69,7 @@ void OnMouseClick(int b, int state, int x, int y) {
 	bool sKey = specialKey & GLUT_ACTIVE_SHIFT;
 
 
-	T.MouseButton(x, y, b, down, sKey, ctrlKey);
+	T.MouseButton(x, y, b, down, sKey, ctrlKey, *pF);
 	glutPostRedisplay();
 }
 

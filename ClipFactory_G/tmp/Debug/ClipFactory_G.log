@@ -1,1 +1,3 @@
-﻿LINK : fatal error LNK1168: no se puede abrir C:\Users\johnj\Documents\GitHub\ClipFactory\bin\ClipFactory_G.exe para escritura
+﻿  Fabrica.cpp
+c:\users\johnj\documents\github\clipfactory\juegoherencia\juegoherencia\fabrica.cpp(69): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+  ClipFactory_G.vcxproj -> C:\Users\johnj\Documents\GitHub\ClipFactory\bin\ClipFactory_G.exe

@@ -93,7 +93,7 @@ void Tablero::DibujaCelda(int i, int j, Fabrica &f) {
 		case Marketing_M:
 			CentroCelda(j, i, glx, gly);
 			//glDisable(GL_LIGHTING);
-			GLTools::Color(gltools::RED);
+			GLTools::Color(gltools::GREEN);
 			glTranslatef(glx, gly, 0);
 			glutSolidSphere((ancho / 2.0f)*0.8f, 50, 50);
 			glTranslatef(-glx, -gly, 0);
@@ -103,7 +103,7 @@ void Tablero::DibujaCelda(int i, int j, Fabrica &f) {
 		case Trefiladora_M:
 			CentroCelda(j, i, glx, gly);
 			//glDisable(GL_LIGHTING);
-			GLTools::Color(gltools::RED);
+			GLTools::Color(gltools::BLUE);
 			glTranslatef(glx, gly, 0);
 			glutSolidSphere((ancho / 2.0f)*0.8f, 50, 50);
 			glTranslatef(-glx, -gly, 0);
@@ -133,11 +133,14 @@ void Tablero::Dibuja(int nF, int nC, Fabrica &f) {
 	//glEnable(GL_LIGHTING);
 }
 
-void Tablero::KeyDown(unsigned char key) {
-
+void Tablero::KeyDown(unsigned char key, Fabrica &f) {
+	switch (key) {
+	case 's':
+		f.CambiaTamaño(1, 1); break;
+	}
 }
 
-void Tablero::MouseButton(int x, int y, int button, bool down, bool shiftKey, bool ctrlKey) {
+void Tablero::MouseButton(int x, int y, int button, bool down, bool shiftKey, bool ctrlKey, Fabrica &f) {
 	//computes cell coordinates from mouse coordinates
 
 	GLint viewport[4];

@@ -24,7 +24,7 @@ public:
 	void DibujaMalla();
 	void DibujaCelda(int i, int j, Fabrica &f);
 	void Dibuja(int nF, int nC, Fabrica &f);
-	void KeyDown(unsigned char key);
-	void MouseButton(int x, int y, int button, bool down, bool shiftKey, bool ctrlKey);
+	void KeyDown(unsigned char key, Fabrica &f);
+	void MouseButton(int x, int y, int button, bool down, bool shiftKey, bool ctrlKey, Fabrica &f);
 };
 
