@@ -1,5 +1,9 @@
 #pragma once
 #include "Pieza.h"
+
+//Tipos de datos
+enum Maquinas { Autoclipper_M = 1, Marketing_M, Trefiladora_M };
+
 class Fabrica
 {
 	//datos mostrados al usuario
@@ -29,20 +33,20 @@ public:
 	Fabrica(); //deberia reservar memoria para el vector e igualarlo a NULL
 	~Fabrica();
 
-	//Tipos de datos
-	enum Maquinas { Autoclipper_M = 1, Marketing_M, Trefiladora_M };
-
 
 //metodos
 	bool UpdateFabric(); //actualiza los fondos, el precio y la produccion en funcion de las piezas y su nivel. Devuelve 1 si todo va bien o un 0 si estamos en numeros rojos.
 	Pieza ***lightsOn(int nFilas, int nColumnas);
 
-	//Pieza* getValue(int pRow, int pColumn);
+	//Pieza* getValue(int pRow, int pColumn); por qué no?
 
+	Pieza* getValue(int pRow, int pColumn);
 	std::ostream& print(std::ostream& o = std::cout, bool fichero = false);
 	int new_maquina(int tipo, int F, int C);
 	int getLevel(int F, int C); //devuelve el nivel de la maquina que esta en la casilla [F] [C]
 	float getCoste(int F, int C);//devuelve el coste de la maquina, ya sea precio inicial si esta el nivel a 0 o de actualizacion si es superior. 
+	int getnFilas();
+	int getnColumnas();
 	int UpdateMachine(int F, int C); //aumenta el nivel y cobra el precio 
 	void imprimirEstado();
 	void control();

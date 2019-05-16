@@ -177,6 +177,24 @@ ostream& Fabrica::print(ostream& o, bool fichero) {
 	return o;
 }
 
+Pieza* Fabrica::getValue(int pRow, int pColumn) {
+	if (pRow < 0 || pRow >= nFilas) {
+		//throw runtime_error("Invalid row.");
+	}
+	if (pColumn < 0 || pColumn >= nColumnas) {
+		//throw runtime_error("Invalid column.");
+	}
+	return M[pRow][pColumn];
+}
+
+int Fabrica::getnFilas() {
+	return nFilas;
+}
+
+int Fabrica::getnColumnas() {
+	return nColumnas;
+}
+
 int Fabrica::new_maquina(int tipo, int F, int C)
 {
 

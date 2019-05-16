@@ -1,4 +1,1 @@
-﻿  Game.cpp
-  boardgl.cpp
-  Generando código...
-  ClipFactory_G.vcxproj -> C:\Users\beta3\Documents\GitHub\ClipFactory_R\bin\ClipFactory_G.exe
+﻿LINK : fatal error LNK1168: no se puede abrir C:\Users\johnj\Documents\GitHub\ClipFactory\bin\ClipFactory_G.exe para escritura

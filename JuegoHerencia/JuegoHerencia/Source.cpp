@@ -1,4 +1,4 @@
-#include "Fabrica.h"
+/*#include "Fabrica.h"
 #include "Pieza.h"
 
 #include "AutoClipper.h"
@@ -29,7 +29,7 @@ int main()
 	cout << endl;
 	cout << F.getCoste(0, 0);*/
 
-	char in;
+	/*char in;
 	cout << "Presione n para nuevo juego, c para cargar juego y e para salir: ";
 	cin >> in;
 	switch (in) {
@@ -59,5 +59,5 @@ int main()
 	return 0;
 
 
-}
+}*/
 
