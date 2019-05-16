@@ -185,7 +185,8 @@ int Fabrica::getnColumnas() {
 	return nColumnas;
 }
 
-void Fabrica::CambiaTamaño(int F, int C) {  //NOTA, SOLO SE CONSIDERAN POSIBLES LAS AMPLIACIONES
+void Fabrica::CambiaTamaño(int F, int C) {  //F y C son las filas y columnas QUE SE AÑADEN.
+	//NOTA: SOLO SE CONSIDERAN POSIBLES LAS AMPLIACIONES
 	//Maximo 20 filas y 20 columnas, de momento, si metemos más, hay que programar que se pueda mover la cámara, 
 	//y dejarla más cerca, si no no se ve nada...
 	if ((F < 0 || C < 0) || (nFilas >= 20 || nColumnas >= 20)) {   }
