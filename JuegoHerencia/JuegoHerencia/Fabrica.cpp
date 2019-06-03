@@ -177,13 +177,28 @@ Pieza* Fabrica::getValue(int pRow, int pColumn) {
 	return M[pRow][pColumn];
 }
 
-int Fabrica::getnFilas() {
-	return nFilas;
-}
+int Fabrica::getnFilas() { return nFilas; }
 
-int Fabrica::getnColumnas() {
-	return nColumnas;
-}
+int Fabrica::getnColumnas() { return nColumnas; }
+
+float Fabrica::getFondos() { return fondos; }
+
+int Fabrica::getProduccion() { return produccion; }
+
+float Fabrica::getPrecio() { return precio; }
+
+float Fabrica::getProduccionAlambre() { return ProdAlambre; }
+
+float Fabrica::getConsumoAlambre() { return ConsumoAlambre; }
+
+float Fabrica::getConsumoDinero() { return ConsumoDinero; }
+
+float Fabrica::getGastos() { return gasto; }
+
+float Fabrica::getBeneficio() { return beneficios; }
+
+int Fabrica::getDias() { return dias; }
+
 
 void Fabrica::CambiaTamaño(int F, int C) {  //F y C son las filas y columnas QUE SE AÑADEN.
 	//NOTA: SOLO SE CONSIDERAN POSIBLES LAS AMPLIACIONES

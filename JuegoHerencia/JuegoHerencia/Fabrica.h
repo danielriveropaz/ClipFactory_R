@@ -48,6 +48,15 @@ public:
 	float getCoste(int F, int C);//devuelve el coste de la maquina, ya sea precio inicial si esta el nivel a 0 o de actualizacion si es superior. 
 	int getnFilas();
 	int getnColumnas();
+	float getFondos();
+	int getProduccion();
+	float getPrecio();
+	float getProduccionAlambre();
+	float getConsumoAlambre();
+	float getConsumoDinero();
+	float getGastos();
+	float getBeneficio();
+	int getDias();
 	int UpdateMachine(int F, int C); //aumenta el nivel y cobra el precio 
 	void imprimirEstado();
 	void control();
