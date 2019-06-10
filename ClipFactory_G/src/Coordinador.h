@@ -1,5 +1,4 @@
 #pragma once
-#include "ETSIDI.h"
 #include "Tablero.h"
 
 class Coordinador

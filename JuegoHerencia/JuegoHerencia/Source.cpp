@@ -23,6 +23,7 @@ int main()
 	F.new_maquina(1, 0, 1);
 	F.new_maquina(3, 0, 2);
 	F.new_maquina(1, 0, 3);
+	cout << endl;
 	F.print();
 	//F.LoadGame("SavedGame.csv", F);
 	F.SaveGame();

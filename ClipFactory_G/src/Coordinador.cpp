@@ -1,5 +1,5 @@
 #include "Coordinador.h"
-
+#include "ETSIDI.h"
 
 Coordinador::Coordinador()
 {
