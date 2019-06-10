@@ -6,7 +6,13 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
-
+#include <string>
+#include <regex>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <fstream>
+#include <vector>
 
 
 using namespace std;
@@ -386,7 +392,12 @@ int Fabrica::update_dias()
 int Fabrica::SaveGame() {
 
 	ofstream fs("SavedGame.csv");
+
 	print(fs, true);
+	
+	fs << 'f' << ';' << fondos << endl;
+	fs << 'd' << ';' << dias << endl;
+
 	cout << "JuegoGuardado"<<endl;
 	fs.close();
 	return 1;
@@ -402,33 +413,88 @@ Fabrica::~Fabrica()
 }
 
 
-/*
 
-int Fabrica::LoadGame(string name, Fabrica FA)
+
+int Fabrica::LoadGame(std::string name, Fabrica &FA)
 {
+
 	ifstream myFile;
 	myFile.open(name);
 
-	int i = 0;
-	int j = 0;
+	int level = 0;
+	char machine = NULL;
 
 	while (myFile.good())
 	{
-		char tipo;
-		int level;
+
 		string line;
+		string s;
+		std::vector<std::vector<std::string> > values;
+		bool dentromatriz= true;
+		int filas=0;
+		int columnas = 0;
 
-		getline(myFile, line, ';');
-		const char* contenido = line.c_str();
-		sprintf((char*)contenido, "%c%d ", tipo, level);
+		while (getline(myFile, line))
+		{
+			std::string line_value;
+			std::vector<std::string> line_values;
+			std::stringstream ss(line);
 
-		j++;
-		if (j > 3) {
-			i++;
-			j = 0;
+			while (std::getline(ss, line_value, ';'))
+			{
+				
+				switch (line_value[0])
+				{
+				case 'A':
+					cout <<"A en: "<<filas<< columnas << " nivel :"<< line_value[1]<<endl;
+					break;
+				case 'M':
+					cout << "M en: " << filas << columnas << " nivel :" << line_value[1] << endl;
+					break;
+				case 'T':
+					cout << "T en: " << filas << columnas << " nivel :" << line_value[1] << endl;
+					break;
+				case 'f':
+					std::getline(ss, line_value, ';');
+					cout << "Fondos: " << line_value << endl;
+					dentromatriz = 0;
+
+					break;
+				case 'd':
+					std::getline(ss, line_value, ';');
+					cout << "Dias Transcurridos: " << line_value << endl;
+					dentromatriz = 0;
+					break;
+				}
+				if(dentromatriz)
+				columnas++;
+			}
+			if (dentromatriz)
+			{
+				columnas = 0;
+				filas++;
+			}
+
 		}
-	}
 
+		}
+
+		return 0;
 }
 
+/*
+if (line_value[0] != '-' && line_value[0] != '*' && line_value[0] != NULL && line_value[0] != 'b' && line_value[0]!= 'd')
+{
+	cout << filas << columnas;
+	cout << line_value;
+	cout << " ";
+}
+
+
+else if (line_value[0] == 'b')
+{
+	std::getline(ss, line_value, ';');
+
+	cout << "beneficio" <<line_value;
+}
 */

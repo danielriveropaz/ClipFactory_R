@@ -62,6 +62,8 @@ public:
 	void control();
 	int update_dias();
 	void CambiaTamaño(int F, int C);
+	int LoadGame(std::string name, Fabrica& FA);
+
 
 	//guardar y cargar juego
 	int SaveGame();
