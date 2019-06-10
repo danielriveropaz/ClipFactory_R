@@ -11,24 +11,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\JuegoHerencia\JuegoHerencia\AutoClipper.h" />
-    <ClInclude Include="..\JuegoHerencia\JuegoHerencia\Fabrica.h" />
-    <ClInclude Include="..\JuegoHerencia\JuegoHerencia\Marketing.h" />
-    <ClInclude Include="..\JuegoHerencia\JuegoHerencia\Pieza.h" />
-    <ClInclude Include="..\JuegoHerencia\JuegoHerencia\Tablero.h" />
-    <ClInclude Include="..\JuegoHerencia\JuegoHerencia\Trefiladora.h" />
+    <ClInclude Include="src\AutoClipper.h" />
+    <ClInclude Include="src\Coordinador.h" />
+    <ClInclude Include="src\Fabrica.h" />
     <ClInclude Include="src\gltools.h" />
+    <ClInclude Include="src\Marketing.h" />
+    <ClInclude Include="src\Pieza.h" />
+    <ClInclude Include="src\Tablero.h" />
+    <ClInclude Include="src\Trefiladora.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\JuegoHerencia\JuegoHerencia\AutoClipper.cpp" />
-    <ClCompile Include="..\JuegoHerencia\JuegoHerencia\Fabrica.cpp" />
-    <ClCompile Include="..\JuegoHerencia\JuegoHerencia\Juego.cpp" />
-    <ClCompile Include="..\JuegoHerencia\JuegoHerencia\Marketing.cpp" />
-    <ClCompile Include="..\JuegoHerencia\JuegoHerencia\Pieza.cpp" />
-    <ClCompile Include="..\JuegoHerencia\JuegoHerencia\Source.cpp" />
-    <ClCompile Include="..\JuegoHerencia\JuegoHerencia\Tablero.cpp" />
-    <ClCompile Include="..\JuegoHerencia\JuegoHerencia\Trefiladora.cpp" />
+    <ClCompile Include="src\AutoClipper.cpp" />
+    <ClCompile Include="src\Coordinador.cpp" />
+    <ClCompile Include="src\Fabrica.cpp" />
     <ClCompile Include="src\gltools.cpp" />
+    <ClCompile Include="src\Juego.cpp" />
+    <ClCompile Include="src\Marketing.cpp" />
+    <ClCompile Include="src\Pieza.cpp" />
+    <ClCompile Include="src\Tablero.cpp" />
+    <ClCompile Include="src\Trefiladora.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{e8cf6101-1127-4eb4-8463-5612f2df845d}</ProjectGuid>
