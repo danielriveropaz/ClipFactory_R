@@ -1,1 +1,17 @@
-﻿  ClipFactory_G.vcxproj -> C:\Users\beta3\Documents\GitHub\ClipFactory_R\bin\ClipFactory_G.exe
+﻿  AutoClipper.cpp
+  Coordinador.cpp
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\coordinador.cpp(32): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\coordinador.cpp(35): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\coordinador.cpp(36): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\coordinador.cpp(39): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\coordinador.cpp(54): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
+  Fabrica.cpp
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\fabrica.cpp(69): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+  Juego.cpp
+  Marketing.cpp
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\marketing.cpp(11): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+  Pieza.cpp
+  Tablero.cpp
+  Trefiladora.cpp
+  Generando código...
+  ClipFactory_G.vcxproj -> C:\Users\beta3\Documents\GitHub\ClipFactory_R\bin\ClipFactory_G.exe
