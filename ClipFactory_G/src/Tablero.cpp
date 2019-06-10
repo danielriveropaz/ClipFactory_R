@@ -448,11 +448,14 @@ bool Tablero::CeldadelTablero(int x, int y) {
 void Tablero::KeyDown(unsigned char key, Fabrica &f) {
 	switch (key) {
 	case 'a':
+	case 'A':
 		EstaSeguroAmpliar = TRUE; break;
 	case 's':
+	case 'S':
 		if (EstaSeguroAmpliar == TRUE) { f.CambiaTamaño(1, 1); EstaSeguroAmpliar = FALSE; }
 		break;
 	case 'n':
+	case 'N':
 		EstaSeguroAmpliar = FALSE;
 	}
 }

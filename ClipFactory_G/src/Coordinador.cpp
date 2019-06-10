@@ -69,12 +69,14 @@ void Coordinador::KeyDown(unsigned char key) {
 	if (estado == INICIO)
 	{
 		switch (key) {
-		case 'n':
+		case 'n' :
+		case 'N' :
 			estado = JUEGO;
 			ETSIDI::stopMusica();
 			ETSIDI::playMusica("music/digimonadvbajo.mp3", true);
 			break;
 		case 'l':
+		case 'L':
 			estado = JUEGO;
 			ETSIDI::stopMusica();
 			ETSIDI::playMusica("music/digimonadvbajo.mp3", true);
