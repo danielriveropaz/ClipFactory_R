@@ -45,11 +45,12 @@ int Pieza::get_type()
 }
 
 
+/*
 ostream& Pieza::print(ostream& o)
 {
 	return o;// TODO: insertar una instrucción return aquí
 }
-
+*/
 
 float Pieza::get_consumo()
 {

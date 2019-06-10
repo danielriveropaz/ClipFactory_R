@@ -25,7 +25,7 @@ public:
 	float get_consumo(); //devuelve lo que necesita para funcionar.
 	float get_consumo(int level);
 	int get_type(); //devuelve el tipo de maquina, lo rellena el constructor de los hijos
-	virtual std::ostream& print(std::ostream& o = std::cout);
+	virtual std::ostream& print(std::ostream& o = std::cout)=0;
 	int getLevel();
 	float getCoste();
 	float getCoste(int level);
