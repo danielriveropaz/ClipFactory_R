@@ -1,6 +1,7 @@
 Clip-Factory
 
 INTRODUCCIÓN
+
 El juego que se ha desarrollado consiste en un tablero de 5 por 5 casillas en la fase inicial, que representa la planta de una fábrica. En las distintas casillas se pueden colocar diferentes tipos de máquinas con la intención de que el jugador actúe como el gerente de una fabrica de clips. 
 Hay tres tipos de máquinas, las cuales se explicarán en detalle más adelante, que controlan la producción de clips, la obtención de materia prima para fabricar los mismos y el precio de venta de los clips. 
 El objetivo del juego es conseguir que la fabrica sea viable, optimizando la producción de clips lo máximo posible combinando las distintas maquinas, sin llegar a alcanzar la bancarrota.
@@ -17,6 +18,8 @@ Una vez estamos dentro de una partida, nos encontraremos en el tablero, a la der
 •	Gastos: Todas las máquinas tienen un coste diario, este dato es la suma de todos los costes.
 •	Beneficio: Los beneficios que se obtienen por día.
 •	Días: Los días que han transcurrido desde que se empezó a gestionar la fábrica. 
+
+BOTONES
 
 A la izquierda del tablero nos encontramos las tres máquinas de las que podemos disponer de las maquinas en el siguiente orden:
 
