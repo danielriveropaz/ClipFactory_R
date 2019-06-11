@@ -1,1 +1,49 @@
-Holi
+Clip-Factory
+
+INTRODUCCIÓN
+
+El juego que se ha desarrollado consiste en un tablero de 5 por 5 casillas en la fase inicial, que representa la planta de una fábrica. En las distintas casillas se pueden colocar diferentes tipos de máquinas con la intención de que el jugador actúe como el gerente de una fabrica de clips. 
+Hay tres tipos de máquinas, las cuales se explicarán en detalle más adelante, que controlan la producción de clips, la obtención de materia prima para fabricar los mismos y el precio de venta de los clips. 
+El objetivo del juego es conseguir que la fabrica sea viable, optimizando la producción de clips lo máximo posible combinando las distintas maquinas, sin llegar a alcanzar la bancarrota.
+
+INSTRUCCIONES
+
+Al abrir el juego nos encontramos en la pantalla de inicio, podremos elegir entre empezar una partida nueva o cargar una anterior. El juego guarda la partida automáticamente con cada cambio de día, por lo que no será necesario que nos encarguemos de guardar manualmente.
+Una vez estamos dentro de una partida, nos encontraremos en el tablero, a la derecha tenemos la información relevante de nuestra fabrica:
+•	Fondos: El capital del que disponemos para comprar y mejorar máquinas.
+•	Producción: La cantidad de clips que se producen al día.
+•	Precio: La cantidad que se nos paga por clip vendido.
+•	Prod. Alambre: la cantidad de alambre que producimos, necesaria para que las maquinas encargadas de fabricar clips puedan funcionar.
+•	Cons. Alambre: la cantidad de alambre que consumen nuestras maquinas en total.
+•	Gastos: Todas las máquinas tienen un coste diario, este dato es la suma de todos los costes.
+•	Beneficio: Los beneficios que se obtienen por día.
+•	Días: Los días que han transcurrido desde que se empezó a gestionar la fábrica. 
+
+BOTONES
+
+A la izquierda del tablero nos encontramos las tres máquinas de las que podemos disponer de las maquinas en el siguiente orden:
+
+Trefiladora
+
+	Es la encargada de producir alambre.
+Consume dinero.
+
+AutoClipper
+
+	Es la encargada de producir clips.
+Consume dinero y alambre.
+
+Marketing
+	Controlan el precio de venta de los clips.
+Consume dinero. 
+
+
+Debajo del tablero encontraremos dos botones, uno para subir de nivel las maquinas, lo que mejorara sus propiedades y otro para pasar de día. Siempre que se ejecute una acción, ya sea comprar una maquina nueva o mejorar una ya existente, pasara un día en el juego. 
+Para comprar una maquina nueva debemos seleccionar una casilla vacía y a continuación la maquina que se quiere crear. 
+Para subir una máquina de nivel primero seleccionamos la máquina que se quiere mejorar y a continuación se selecciona el botón subir de nivel.
+
+
+
+
+
+ 
