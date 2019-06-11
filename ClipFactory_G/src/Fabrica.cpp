@@ -482,19 +482,31 @@ int Fabrica::LoadGame(std::string name)
 				case 'A':
 					cout << "A en: " << filas << columnas << " nivel :" << line_value[1] << endl;
 					new_maquina(Autoclipper_M, filas, columnas);
-					//level = (int)stod(line_value);
-					for (int i = 0; i <= level; i++) {
+					level = (line_value[1]-'0');
+					cout << level;
+					for (int i = 0; i < level; i++) {
 						M[filas][columnas]->UpdateLevel();
 					}
 					break;
 				case 'M':
 					cout << "M en: " << filas << columnas << " nivel :" << line_value[1] << endl;
 					new_maquina(Marketing_M, filas, columnas);
+					level = (line_value[1] - '0');
+					cout << level;
+					for (int i = 0; i < level; i++) {
+						M[filas][columnas]->UpdateLevel();
+					}
 					break;
 				case 'T':
 					cout << "T en: " << filas << columnas << " nivel :" << line_value[1] << endl;
 					new_maquina(Trefiladora_M, filas, columnas);
+					level = (line_value[1] - '0');
+					cout << level;
+					for (int i = 0; i < level; i++) {
+						M[filas][columnas]->UpdateLevel();
+					}
 					break;
+
 				case 'f':
 					std::getline(ss, line_value, ';');
 					cout << "Fondos: " << line_value << endl;

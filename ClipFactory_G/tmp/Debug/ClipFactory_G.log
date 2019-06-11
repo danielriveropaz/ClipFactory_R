@@ -1,5 +1,5 @@
 ﻿  Fabrica.cpp
-c:\users\johnj\documents\github\clipfactory\clipfactory_g\src\fabrica.cpp(76): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\johnj\documents\github\clipfactory\clipfactory_g\src\fabrica.cpp(215): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-c:\users\johnj\documents\github\clipfactory\clipfactory_g\src\fabrica.cpp(501): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
-  ClipFactory_G.vcxproj -> C:\Users\johnj\Documents\GitHub\ClipFactory\bin\ClipFactory_G.exe
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\fabrica.cpp(76): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\fabrica.cpp(215): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\beta3\documents\github\clipfactory_r\clipfactory_g\src\fabrica.cpp(513): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+  ClipFactory_G.vcxproj -> C:\Users\beta3\Documents\GitHub\ClipFactory_R\bin\ClipFactory_G.exe
