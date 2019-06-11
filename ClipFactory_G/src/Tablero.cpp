@@ -123,7 +123,7 @@ void Tablero::DibujaInfo(Fabrica &f) {
 	snprintf(Cadena, 8, "%f", f.getFondos());
 	ETSIDI::printxy(Cadena, dist_x*1.40, -Tab[0], 0.00);
 	ETSIDI::printxy("Producción:", dist_x*1.1, -Tab[1], 0.00);
-	snprintf(Cadena, 10, "%d", f.getProduccion());
+	snprintf(Cadena, 8, "%f", f.getProduccion());
 	ETSIDI::printxy(Cadena, dist_x*1.40, -Tab[1], 0.00);
 	ETSIDI::printxy("Precio:", dist_x*1.1, -Tab[2], 0.00);
 	snprintf(Cadena, 8, "%f", f.getPrecio());
@@ -137,15 +137,15 @@ void Tablero::DibujaInfo(Fabrica &f) {
 	ETSIDI::printxy("Cons. Dinero:", dist_x*1.1, -Tab[5], 0.00);
 	snprintf(Cadena, 8, "%f", f.getConsumoDinero());
 	ETSIDI::printxy(Cadena, dist_x*1.40, -Tab[5], 0.00);
-	ETSIDI::printxy("Gastos:", dist_x*1.1, -Tab[6], 0.00);
-	snprintf(Cadena, 8, "%f", f.getGastos());
+	//ETSIDI::printxy("Gastos:", dist_x*1.1, -Tab[6], 0.00);
+	//snprintf(Cadena, 8, "%f", f.getGastos());
+	//ETSIDI::printxy(Cadena, dist_x*1.40, -Tab[6], 0.00);
+	ETSIDI::printxy("Ingresos:", dist_x*1.1, -Tab[6], 0.00);
+	snprintf(Cadena, 8, "%f", f.getIngresos());
 	ETSIDI::printxy(Cadena, dist_x*1.40, -Tab[6], 0.00);
-	ETSIDI::printxy("Beneficio:", dist_x*1.1, -Tab[7], 0.00);
-	snprintf(Cadena, 8, "%f", f.getBeneficio());
-	ETSIDI::printxy(Cadena, dist_x*1.40, -Tab[7], 0.00);
-	ETSIDI::printxy("Días:", dist_x*1.1, -Tab[8], 0.00);
+	ETSIDI::printxy("Días:", dist_x*1.1, -Tab[7], 0.00);
 	snprintf(Cadena, 10, "%d", f.getDias());
-	ETSIDI::printxy(Cadena, dist_x*1.40, -Tab[8], 0.00);
+	ETSIDI::printxy(Cadena, dist_x*1.40, -Tab[7], 0.00);
 }
 
 void Tablero::DibujaMasInfoPieza(Pieza &p) {

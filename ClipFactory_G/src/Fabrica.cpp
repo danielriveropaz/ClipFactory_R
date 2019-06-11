@@ -23,8 +23,7 @@ Fabrica::Fabrica()
 	fondos = 1000; //Se podria poner modos de juego, facil, dificil, etc etc donde cambiemos el capital inicial.
 	produccion = 0;//numero de clips por ciclo
 	precio = 0;
-	gasto = 0;
-	beneficios = 0;
+	Ingresos = 0;
 
 	dias = 0;
 
@@ -116,6 +115,7 @@ bool Fabrica::UpdateFabric()
 	//Una vez tenemos la produccion de clips de este ciclo, los vendemos.
 	fondos += precio * produccion;
 
+	Ingresos = precio * produccion;
 
 	return 1;//todo correcto
 }
@@ -200,9 +200,7 @@ float Fabrica::getConsumoAlambre() { return ConsumoAlambre; }
 
 float Fabrica::getConsumoDinero() { return ConsumoDinero; }
 
-float Fabrica::getGastos() { return gasto; }
-
-float Fabrica::getBeneficio() { return beneficios; }
+float Fabrica::getIngresos() { return Ingresos; }
 
 int Fabrica::getDias() { return dias; }
 
@@ -312,8 +310,7 @@ void Fabrica::imprimirEstado()
 	cout << "Produccion alambre: " << ProdAlambre << endl;
 	cout << "Consumo alambre: " << ConsumoAlambre << endl;
 	cout << "Consumo dinero: " << ConsumoDinero << endl;
-	cout << "Gastos: " << gasto << endl;
-	cout << "Beneficios: " << beneficios << endl;
+	cout << "Ingresos: " << Ingresos << endl;
 	cout << "Dias transcurridos: " << dias << endl;
 
 
@@ -400,39 +397,15 @@ int Fabrica::update_dias()
 
 Fabrica::~Fabrica()
 {
-}
-
-
-/*
-
-int Fabrica::LoadGame(string name, Fabrica FA)
-{
-	ifstream myFile;
-	myFile.open(name);
-
-	int i = 0;
-	int j = 0;
-
-	while (myFile.good())
+	for (int i=0; i < nFilas; i++)
 	{
-		char tipo;
-		int level;
-		string line;
-
-		getline(myFile, line, ';');
-		const char* contenido = line.c_str();
-		sprintf((char*)contenido, "%c%d ", tipo, level);
-
-		j++;
-		if (j > 3) {
-			i++;
-			j = 0;
-		}
+		delete *M[i];
 	}
 
+	delete **M;
 }
 
-*/
+
 
 int Fabrica::SaveGame() {
 
@@ -483,7 +456,6 @@ int Fabrica::LoadGame(std::string name)
 					cout << "A en: " << filas << columnas << " nivel :" << line_value[1] << endl;
 					new_maquina(Autoclipper_M, filas, columnas);
 					level = (line_value[1]-'0');
-					cout << level;
 					for (int i = 0; i < level; i++) {
 						M[filas][columnas]->UpdateLevel();
 					}
@@ -492,7 +464,6 @@ int Fabrica::LoadGame(std::string name)
 					cout << "M en: " << filas << columnas << " nivel :" << line_value[1] << endl;
 					new_maquina(Marketing_M, filas, columnas);
 					level = (line_value[1] - '0');
-					cout << level;
 					for (int i = 0; i < level; i++) {
 						M[filas][columnas]->UpdateLevel();
 					}
@@ -501,7 +472,6 @@ int Fabrica::LoadGame(std::string name)
 					cout << "T en: " << filas << columnas << " nivel :" << line_value[1] << endl;
 					new_maquina(Trefiladora_M, filas, columnas);
 					level = (line_value[1] - '0');
-					cout << level;
 					for (int i = 0; i < level; i++) {
 						M[filas][columnas]->UpdateLevel();
 					}

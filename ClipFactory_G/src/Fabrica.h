@@ -9,7 +9,7 @@ class Fabrica
 private:
 	//datos mostrados al usuario
 	float fondos; //fondos totales.
-	int produccion; //produccion de clip por segundo.
+	float produccion; //produccion de clip por segundo.
 	float precio; //precio de venta de los clips
 	int dias;
 
@@ -20,7 +20,7 @@ private:
 	float ConsumoDinero; //Cuanto dinero necesitamos por ciclo.
 
 	float gasto; //gasto por segundo total de la fabrica.
-	float beneficios; //beneficio por segundo que produce la fabrica. //Como lo voy añadiendo todo a los fondos pues no lo calculo, habria que añadir una auxiliar que sea fondos/ciclo para poder calcularla, o sino borrarla jajaja
+	float Ingresos; //beneficio por segundo que produce la fabrica. //Como lo voy añadiendo todo a los fondos pues no lo calculo, habria que añadir una auxiliar que sea fondos/ciclo para poder calcularla, o sino borrarla jajaja
 
 	int nFilas, nColumnas;
 
@@ -54,8 +54,7 @@ public:
 	float getProduccionAlambre();
 	float getConsumoAlambre();
 	float getConsumoDinero();
-	float getGastos();
-	float getBeneficio();
+	float getIngresos();
 	int getDias();
 	int UpdateMachine(int F, int C); //aumenta el nivel y cobra el precio 
 	void imprimirEstado();
