@@ -6,6 +6,13 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <string>
+#include <regex>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <fstream>
+#include <vector>
 
 
 
@@ -204,42 +211,45 @@ void Fabrica::CambiaTamaño(int F, int C) {  //F y C son las filas y columnas QUE
 	//NOTA: SOLO SE CONSIDERAN POSIBLES LAS AMPLIACIONES
 	//Maximo 20 filas y 20 columnas, de momento, si metemos más, hay que programar que se pueda mover la cámara, 
 	//y dejarla más cerca, si no no se ve nada...
-	if ((F < 0 || C < 0) || (nFilas >= 20 || nColumnas >= 20)) {}
-	else
-	{
-		//nuevo puntero a una matriz N auxiliar, para guardar los datos mientras se crea una nueva matriz.
-		Pieza *** N = lightsOn(nFilas, nColumnas);
-		for (int i = 0; i < nFilas; i++)
+	int numeroespacios = 2 * nFilas + 1;
+	float coste = 100.0 * numeroespacios;
+		if ((F < 0 || C < 0) || (nFilas >= 20 || nColumnas >= 20)) {}
+		else
 		{
-			for (int j = 0; j < nColumnas; j++)
+			//nuevo puntero a una matriz N auxiliar, para guardar los datos mientras se crea una nueva matriz.
+			Pieza *** N = lightsOn(nFilas, nColumnas);
+			for (int i = 0; i < nFilas; i++)
 			{
-				N[i][j] = M[i][j];
+				for (int j = 0; j < nColumnas; j++)
+				{
+					N[i][j] = M[i][j];
+				}
 			}
-		}
-		//puntero a nueva matriz M, inicialmente, ponemos todo a NULL, y despues pasamos los datos de N a M.
+			//puntero a nueva matriz M, inicialmente, ponemos todo a NULL, y despues pasamos los datos de N a M.
 
-		M = lightsOn(nFilas + F, nColumnas + C);
+			M = lightsOn(nFilas + F, nColumnas + C);
 
-		for (int i = 0; i < nFilas + F; i++)
-		{
-			for (int j = 0; j < nColumnas + C; j++)
+			for (int i = 0; i < nFilas + F; i++)
 			{
-				M[i][j] = NULL;
+				for (int j = 0; j < nColumnas + C; j++)
+				{
+					M[i][j] = NULL;
+				}
 			}
-		}
 
-		for (int i = 0; i < nFilas; i++)
-		{
-			for (int j = 0; j < nColumnas; j++)
+			for (int i = 0; i < nFilas; i++)
 			{
-				M[i][j] = N[i][j];
+				for (int j = 0; j < nColumnas; j++)
+				{
+					M[i][j] = N[i][j];
+				}
 			}
-		}
 
 
-		//nuevas filas y columnas.
-		nFilas = nFilas + F;
-		nColumnas = nColumnas + C;
+			//nuevas filas y columnas.
+			nFilas = nFilas + F;
+			nColumnas = nColumnas + C;
+			fondos = fondos - coste;
 	}
 }
 
@@ -380,18 +390,9 @@ void Fabrica::control()
 int Fabrica::update_dias()
 {
 	dias++;
+	SaveGame();
 	return 1; //todo ha ido bien. 
 }
-
-int Fabrica::SaveGame() {
-
-	ofstream fs("SavedGame.csv");
-	print(fs, true);
-	cout << "JuegoGuardado" << endl;
-	fs.close();
-	return 1;
-}
-
 
 
 
@@ -432,3 +433,94 @@ int Fabrica::LoadGame(string name, Fabrica FA)
 }
 
 */
+
+int Fabrica::SaveGame() {
+
+	ofstream fs("SavedGame.csv");
+
+	print(fs, true);
+
+	fs << 'f' << ';' << fondos << endl;
+	fs << 'd' << ';' << dias << endl;
+
+	cout << "JuegoGuardado" << endl;
+	fs.close();
+	return 1;
+}
+
+int Fabrica::LoadGame(std::string name)
+{
+
+	ifstream myFile;
+	myFile.open(name);
+
+	int level = 0;
+	char machine = NULL;
+
+	while (myFile.good())
+	{
+
+		string line;
+		string s;
+		std::vector<std::vector<std::string> > values;
+		bool dentromatriz = true;
+		int filas = 0;
+		int columnas = 0;
+		int level = 0;
+
+		while (getline(myFile, line))
+		{
+			std::string line_value;
+			std::vector<std::string> line_values;
+			std::stringstream ss(line);
+
+			while (std::getline(ss, line_value, ';'))
+			{
+
+				switch (line_value[0])
+				{
+				case 'A':
+					cout << "A en: " << filas << columnas << " nivel :" << line_value[1] << endl;
+					new_maquina(Autoclipper_M, filas, columnas);
+					//level = (int)stod(line_value);
+					for (int i = 0; i <= level; i++) {
+						M[filas][columnas]->UpdateLevel();
+					}
+					break;
+				case 'M':
+					cout << "M en: " << filas << columnas << " nivel :" << line_value[1] << endl;
+					new_maquina(Marketing_M, filas, columnas);
+					break;
+				case 'T':
+					cout << "T en: " << filas << columnas << " nivel :" << line_value[1] << endl;
+					new_maquina(Trefiladora_M, filas, columnas);
+					break;
+				case 'f':
+					std::getline(ss, line_value, ';');
+					cout << "Fondos: " << line_value << endl;
+					fondos = stod(line_value);
+					dentromatriz = 0;
+
+					break;
+				case 'd':
+					std::getline(ss, line_value, ';');
+					cout << "Dias Transcurridos: " << line_value << endl;
+					dias = (int)stod(line_value);
+					dentromatriz = 0;
+					break;
+				}
+				if (dentromatriz)
+					columnas++;
+			}
+			if (dentromatriz)
+			{
+				columnas = 0;
+				filas++;
+			}
+
+		}
+
+	}
+
+	return 0;
+}

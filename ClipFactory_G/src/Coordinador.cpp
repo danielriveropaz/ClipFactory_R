@@ -81,11 +81,13 @@ void Coordinador::KeyDown(unsigned char key) {
 			ETSIDI::stopMusica();
 			ETSIDI::playMusica("music/digimonadvbajo.mp3", true);
 			//PONER AQUI PARA CARGAR LA PARTIDA
+			fabrica.LoadGame("SavedGame.csv");
 		}
 	}
 	else if (estado == JUEGO)
 	{
 		tablero.KeyDown(key, *pF);
+		if (tablero.getFondos() == false) { estado = GAMEOVER; }
 	}
 	else if (estado == GAMEOVER)
 	{

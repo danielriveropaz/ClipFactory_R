@@ -206,10 +206,17 @@ void Tablero::DibujaInfoNuevaMaquina(int tipo) {
 }
 
 void Tablero::DibujaMasInfo(Fabrica &f) {
+	int numeroespacios = 2 * nFilas + 1;
+	float coste = 100.0 * numeroespacios;
+	char Cadena[8];
 	ETSIDI::setFont("fuentes/ATFAntique Bold.ttf", 10);
 	if (EstaSeguroAmpliar == TRUE) {
 		ETSIDI::printxy("¿Desea realizar una ampliación?", dist_x*0.70, -dist_y * 1.09, 0.00);
-		ETSIDI::printxy("Coste: costeee (numerooo nuevos espacios)", dist_x*0.70, -dist_y * 1.09 - Tab[0], 0.00);
+		ETSIDI::printxy("Coste:                (             nuevos espacios)", dist_x*0.70, -dist_y * 1.09 - Tab[0], 0.00);
+		snprintf(Cadena, 6, "%f", coste);
+		ETSIDI::printxy(Cadena, dist_x*0.85, -dist_y * 1.09 - Tab[0], 0.00);
+		snprintf(Cadena, 6, "%d", numeroespacios);
+		ETSIDI::printxy(Cadena, dist_x*1.05, -dist_y * 1.09 - Tab[0], 0.00);
 		ETSIDI::printxy("¿Está seguro?", dist_x*0.70, -dist_y * 1.09 - Tab[1], 0.00);
 		ETSIDI::printxy("Pulse S (sí) o N (no)", dist_x*0.70, -dist_y * 1.09 - Tab[2], 0.00);
 	}
@@ -452,7 +459,12 @@ void Tablero::KeyDown(unsigned char key, Fabrica &f) {
 		EstaSeguroAmpliar = TRUE; break;
 	case 's':
 	case 'S':
-		if (EstaSeguroAmpliar == TRUE) { f.CambiaTamaño(1, 1); EstaSeguroAmpliar = FALSE; }
+		if (EstaSeguroAmpliar == TRUE) { 
+			f.CambiaTamaño(1, 1);
+			EstaSeguroAmpliar = FALSE; 
+			if (f.UpdateFabric() == 0) { fondos = false; }
+			f.update_dias();
+		}
 		break;
 	case 'n':
 	case 'N':

@@ -9,6 +9,7 @@ private:
 	Tablero tablero;
 	Fabrica fabrica;
 	Fabrica * pF = &fabrica;
+	std::string cargar;
 public:
 	Coordinador();
 	~Coordinador();
